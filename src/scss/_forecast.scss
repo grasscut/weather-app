@@ -1,0 +1,76 @@
+.forecast {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+
+  &__details {
+    color: $peach-dark;
+    font-size: 14px;
+    max-width: 140px;
+  }
+}
+
+.forecastMain {
+  margin-bottom: 15px;
+  margin-right: 26px;
+
+  &__description {
+    font-size: 16px;
+  }
+}
+
+.forecastTemperature {
+  color: $peach-dark;
+  letter-spacing: -1px;
+
+  &__value {
+    font-size: 100px;
+  }
+
+  &__icon {
+    display: none;
+    font-size: 90px;
+  }
+}
+
+.dayTimeForecast {
+  line-height: 24px;
+
+  &__temperature {
+    float: right;
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 489px) {
+  .forecast {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 490px) {
+  .forecast {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .forecastMain {
+    &__description {
+      font-size: 20px;
+    }
+  }
+
+  .forecastTemperature {
+    display: flex;
+    align-items: center;
+
+    &__value {
+      margin-right: 26px;
+    }
+
+    &__icon {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.citySelectPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $blue-gray;
+
+  &__form {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__text {
+    line-height: 4;
+    font-size: 12px;
+  }
+
+  &__useLocation {
+    font-size: 14px;
+  }
+}
+
+.citySelectInput {
+  width: 50%;
+  border: none;
+  outline:none;
+  border-bottom: 1px solid $blue-gray;
+  text-align: center;
+  font-size: 26px;
+
+  background-image:url('./../images/navigation/search.svg');
+  background-repeat:no-repeat;
+  background-position:right center;
+  outline:0;
+
+  //&::-webkit-input-placeholder,
+  //&::-moz-placeholder,
+  //&:-ms-input-placeholder,
+  //&:-o-input-placeholder {
+  //  font-weight: 600;
+  //}
+}

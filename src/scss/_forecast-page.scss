@@ -1,0 +1,30 @@
+.forecastPage {
+  color: $blue-gray;
+  display: flex;
+  flex-direction: column;
+
+  &__date {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+
+.forecastNavigation {
+  &__returnArrow {
+    padding: 5px;
+    margin-right: 20px;
+  }
+
+  &__cityName {
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 490px) {
+  .forecastPage {
+    &__date {
+      font-size: 22px;
+    }
+  }
+}
