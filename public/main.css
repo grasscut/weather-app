@@ -50,8 +50,18 @@
     width: 50px;
     max-width: 50px;
     background-color: white !important; }
+    .forecastNavigation__unitSwitch:after {
+      content: 'F\B0';
+      font-size: 10px;
+      position: relative;
+      top: -21px;
+      left: 36px; }
+    .forecastNavigation__unitSwitch.on:after {
+      content: 'C\B0';
+      left: 5px; }
     .forecastNavigation__unitSwitch .switch-toggle {
-      height: 18px; }
+      height: 18px;
+      z-index: 1; }
 
 @media (min-width: 490px) {
   .forecastPage__date {
