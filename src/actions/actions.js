@@ -1,5 +1,5 @@
 import weatherApi from 'openweather-apis';
-import geocoder from 'geocoder';
+import geocoder from 'city-reverse-geocoder';
 import { push } from "react-router-redux";
 
 weatherApi.setLang('en');
@@ -10,6 +10,13 @@ const updateCity = city => {
     return {
         type: 'SET_CITY',
         city
+    };
+};
+
+const updateUnit = unit => {
+    return {
+        type: 'SET_UNIT',
+        unit
     };
 };
 
@@ -33,6 +40,13 @@ export const setCity = city => {
     };
 };
 
+export const setUnit = unit => {
+    return dispatch => {
+        weatherApi.setUnits(unit.value);
+        dispatch(updateUnit(unit));
+    };
+};
+
 export const fetchForecasts = city => {
     return dispatch => {
         weatherApi.setCity(city);
@@ -52,20 +66,10 @@ export const useGeolocation = () => {
     return dispatch => {
         try {
             navigator.geolocation.getCurrentPosition(position => {
-                geocoder.reverseGeocode(
-                    position.coords.latitude,
-                    position.coords.longitude,
-                    (error, response) => {
-                        try {
-                            const city = response.results[0].address_components
-                                .find(addressComponent => addressComponent.types.includes('locality'))
-                                .short_name;
+                const locationData = geocoder(position.coords.latitude, position.coords.longitude),
+                    city = locationData[0].city;
 
-                            dispatch(setCity(city));
-                        } catch (responseHandlingError) {
-                            // to do
-                        }
-                    });
+                dispatch(setCity(city));
             });
         } catch (error) {
             // to do

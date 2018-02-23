@@ -10,14 +10,32 @@
 }
 
 .forecastNavigation {
+  display: flex;
+  align-items: center;
+
+  > * {
+    flex: 1 1 100%;
+  }
+
   &__returnArrow {
-    padding: 5px;
     margin-right: 20px;
+    max-width: 20px;
   }
 
   &__cityName {
     font-size: 26px;
     font-weight: 600;
+  }
+
+  &__unitSwitch {
+    height: 20px;
+    width: 50px;
+    max-width: 50px;
+    background-color: $white !important;
+
+    .switch-toggle {
+      height: 18px;
+    }
   }
 }
 

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "geocoder": "^0.2.3",
+    "city-reverse-geocoder": "0.0.1",
     "history": "^4.7.2",
     "moment": "^2.20.1",
     "openweather-apis": "^3.3.5",
@@ -13,6 +13,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.1",
+    "react-toggle-switch": "^3.0.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   },

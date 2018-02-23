@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ForecastPage from '../components/ForecastPage';
-import { fetchForecasts } from '../actions/actions';
+import { fetchForecasts, setUnit } from '../actions/actions';
 
 const mapStateToProps = state => {
     return {
@@ -13,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchForecasts: city => dispatch(fetchForecasts(city))
+        fetchForecasts: city => dispatch(fetchForecasts(city)),
+        setUnit: unit => dispatch(setUnit(unit))
     };
 };
 

@@ -18,7 +18,6 @@ class CitySelectPage extends Component {
             { value } = this.state;
 
         setCity(value);
-        // navigateTo('/');
     }
 
     handleChange(event) {
@@ -29,7 +28,6 @@ class CitySelectPage extends Component {
         const { useGeolocation, navigateTo } = this.props;
 
         useGeolocation();
-        // navigateTo('/');
     }
 
     render() {
@@ -55,7 +53,6 @@ class CitySelectPage extends Component {
 
 CitySelectPage.propTypes = {
     setCity: PropTypes.func.isRequired,
-    navigateTo: PropTypes.func.isRequired,
     useGeolocation: PropTypes.func.isRequired
 };
 

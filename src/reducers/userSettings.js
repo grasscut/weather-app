@@ -13,6 +13,11 @@ export default function userSettings(state = initialState, action) {
                 ...state,
                city: action.city
             };
+        case 'SET_UNIT':
+            return {
+                ...state,
+                unit: action.unit
+            };
         default:
             return state;
     }
