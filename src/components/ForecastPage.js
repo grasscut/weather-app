@@ -5,6 +5,7 @@ import moment from 'moment';
 import returnArrow from '../images/navigation/returnArrow.svg';
 import { capitalizeFirstLetter } from '../utils/formatting';
 import Forecast from './Forecast';
+import PreviewForecast from './PreviewForecast';
 import ToggleSwitch from 'react-toggle-switch'
 
 class ForecastPage extends Component {
@@ -57,10 +58,22 @@ class ForecastPage extends Component {
                         onClick={this.handleToggle}
                         on={unit === 'C'} />
                 </div>
+
                 <div className="forecastPage__date">
                     {moment(today).local().format('dddd, MMMM Do YYYY')}
                 </div>
+
                 <Forecast data={forecasts && forecasts[0]} unit={unit} />
+
+                <div className="forecastPage__weekForecast">
+                    {forecasts && forecasts.map(
+                        (forecast, i) => {
+                            const day = moment(today).add(i, 'days').format('dddd');
+
+                            return <PreviewForecast key={i} day={day} data={forecast} unit={unit} />;
+                        }
+                    )}
+                </div>
             </div>
         );
     }

@@ -6,6 +6,8 @@
   &__date {
     font-size: 18px;
     margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 }
 
@@ -57,6 +59,19 @@
   .forecastPage {
     &__date {
       font-size: 22px;
+    }
+  }
+}
+
+@media (min-width: 630px) {
+  .forecastPage {
+    &__weekForecast {
+      display: flex;
+      justify-content: space-between;
+
+      > * {
+        flex: 0 1 0;
+      }
     }
   }
 }

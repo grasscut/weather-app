@@ -32,7 +32,9 @@
   flex-direction: column; }
   .forecastPage__date {
     font-size: 18px;
-    margin-top: 20px; }
+    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px; }
 
 .forecastNavigation {
   display: flex;
@@ -67,13 +69,21 @@
   .forecastPage__date {
     font-size: 22px; } }
 
+@media (min-width: 630px) {
+  .forecastPage__weekForecast {
+    display: flex;
+    justify-content: space-between; }
+    .forecastPage__weekForecast > * {
+      flex: 0 1 0; } }
+
 .forecast {
   display: flex;
   flex-direction: column;
-  margin-top: 12px; }
+  margin-top: 12px;
+  margin-bottom: 30px; }
   .forecast__details {
     color: #df9980;
-    font-size: 14px;
+    font-size: 16px;
     width: 140px; }
 
 .forecastMain {
@@ -117,6 +127,37 @@
     .forecastTemperature__icon {
       display: block; } }
 
+.previewForecast {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  color: white;
+  background-color: #4c676d;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  line-height: 26px;
+  padding: 0 5px;
+  box-sizing: border-box; }
+  .previewForecast__icon {
+    margin-right: 5px; }
+
+@media (min-width: 630px) {
+  .previewForecast {
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    background-color: white;
+    color: #4c676d; }
+    .previewForecast__day {
+      margin-bottom: 10px; }
+    .previewForecast__temperature {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .previewForecast__icon {
+      font-size: 30px; } }
+
 html, body {
   padding: 0;
   margin: 0;
@@ -159,5 +200,5 @@ html, body {
 @media (min-width: 500px) {
   .weatherApp {
     width: 90%;
-    max-height: 370px;
+    max-height: 450px;
     max-width: 700px; } }
