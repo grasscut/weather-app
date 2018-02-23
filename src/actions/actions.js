@@ -36,7 +36,7 @@ const updateForecasts = list => {
 export const setCity = city => {
     return dispatch => {
         dispatch(updateCity(city));
-        dispatch(push('/'));
+        dispatch(fetchForecasts(city));
     };
 };
 
@@ -51,7 +51,14 @@ export const fetchForecasts = city => {
     return dispatch => {
         weatherApi.setCity(city);
         weatherApi.getWeatherForecastForDays(5, (error, response) => {
+            if (error || !response.hasOwnProperty('list')) {
+                dispatch(push('/select-city'));
+
+                return;
+            }
+
             dispatch(updateForecasts(response.list));
+            dispatch(push('/'));
         });
     };
 };

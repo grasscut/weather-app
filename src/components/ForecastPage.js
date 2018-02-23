@@ -12,8 +12,6 @@ class ForecastPage extends Component {
     constructor(props) {
         super(props);
         this.handleToggle = this.handleToggle.bind(this);
-
-        props.fetchForecasts(props.city);
     }
 
     componentWillReceiveProps(nextProps) {

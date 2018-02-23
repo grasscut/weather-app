@@ -30,10 +30,6 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <App />
-            {/*<Switch>*/}
-                {/*/!*<Route path="/:locationName" component={ForecastPage} />*!/*/}
-                {/*<Route path="/" component={CitySelectPage} />*/}
-            {/*</Switch>*/}
         </Router>
     </Provider>,
     document.getElementById('weatherAppRoot')
