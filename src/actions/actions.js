@@ -33,6 +33,13 @@ const updateForecasts = list => {
     };
 };
 
+const resetState = () => {
+    return dispatch => {
+        dispatch(updateCity(null));
+        dispatch(updateForecasts([]));
+    };
+};
+
 export const setCity = city => {
     return dispatch => {
         dispatch(updateCity(city));
@@ -52,6 +59,7 @@ export const fetchForecasts = city => {
         weatherApi.setCity(city);
         weatherApi.getWeatherForecastForDays(5, (error, response) => {
             if (error || !response.hasOwnProperty('list')) {
+                dispatch(resetState());
                 dispatch(push('/select-city'));
 
                 return;
