@@ -5,7 +5,10 @@ class CitySelectPage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { value: '' };
+        this.state = {
+            value: '',
+            loading: false
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,7 +17,7 @@ class CitySelectPage extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const { setCity, navigateTo } = this.props,
+        const { setCity } = this.props,
             { value } = this.state;
 
         setCity(value);
@@ -25,12 +28,16 @@ class CitySelectPage extends Component {
     }
 
     handleGeolocationRequest() {
-        const { useGeolocation, navigateTo } = this.props;
+        const { useGeolocation } = this.props;
 
         useGeolocation();
+
+        this.setState({ loading: true });
     }
 
     render() {
+        const { value, loading } = this.state;
+
         return (
             <div className="citySelectPage">
                 <form className="citySelectPage__form" onSubmit={this.handleSubmit}>
@@ -39,13 +46,14 @@ class CitySelectPage extends Component {
                         type="text"
                         name="city"
                         placeholder="City"
-                        value={this.state.value}
+                        value={value}
                         onChange={this.handleChange}/>
                 </form>
                 <div className="citySelectPage__text">or</div>
                 <div className="citySelectPage__useLocation">
                     use my <span className="link" onClick={this.handleGeolocationRequest}>current location</span>
                 </div>
+                <div className="loader" style={{ visibility: loading ? 'visible' : 'hidden' }} />
             </div>
         );
     }

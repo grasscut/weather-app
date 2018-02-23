@@ -44,7 +44,8 @@ class ForecastPage extends Component {
     }
 
     render() {
-        const { city, today, unit, forecasts } = this.props;
+        const { city, today, unit, forecasts } = this.props,
+            formattedDate = moment(today).local().format('dddd, MMMM Do YYYY');
 
         return (
             <div className="forecastPage">
@@ -60,7 +61,7 @@ class ForecastPage extends Component {
                 </div>
 
                 <div className="forecastPage__date">
-                    {moment(today).local().format('dddd, MMMM Do YYYY')}
+                    {formattedDate}
                 </div>
 
                 <Forecast data={forecasts && forecasts[0]} unit={unit} />

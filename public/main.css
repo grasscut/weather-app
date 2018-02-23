@@ -1,4 +1,27 @@
 /* Colors */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #df9980;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite; }
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 .citySelectPage {
   display: flex;
   flex-direction: column;
@@ -13,6 +36,9 @@
     font-size: 12px; }
   .citySelectPage__useLocation {
     font-size: 14px; }
+  .citySelectPage .loader {
+    position: relative;
+    top: 20px; }
 
 .citySelectInput {
   width: 50%;
@@ -32,7 +58,6 @@
   flex-direction: column; }
   .forecastPage__date {
     font-size: 18px;
-    margin-top: 20px;
     margin-top: 30px;
     margin-bottom: 20px; }
 
@@ -191,7 +216,7 @@ html, body {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding: 30px 2%; }
+    padding: 30px 5px; }
   .weatherApp .link {
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -201,4 +226,6 @@ html, body {
   .weatherApp {
     width: 90%;
     max-height: 450px;
-    max-width: 700px; } }
+    max-width: 700px; }
+    .weatherApp > * {
+      padding: 30px; } }

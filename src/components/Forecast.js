@@ -10,16 +10,16 @@ const createForecastDetails = (temperature, unit) => {
         'night': 'Night'
     };
 
-    return Object.keys(dayTimeNames).map(abbr => {
-        if (abbr in temperature) {
+    return Object.keys(dayTimeNames)
+        .filter(abbr => abbr in temperature)
+        .map(abbr => {
             return (
                 <div className="dayTimeForecast" key={abbr}>
                     <span className="dayTimeForecast__title">{dayTimeNames[abbr]}</span>
                     <span className="dayTimeForecast__temperature">{formatTemperature(temperature[abbr], unit)}</span>
                 </div>
             );
-        }
-    });
+        });
 };
 
 const Forecast = ({ data, unit }) => {

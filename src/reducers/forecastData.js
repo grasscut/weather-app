@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 const initialState = {
-    today: moment().toString(),
+    today: moment().toISOString(),
     forecasts: []
 };
 

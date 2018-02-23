@@ -53,12 +53,6 @@ export const fetchForecasts = city => {
         weatherApi.getWeatherForecastForDays(5, (error, response) => {
             dispatch(updateForecasts(response.list));
         });
-        // fetch('http://api.openweathermap.org/data/2.5/forecast?APPID=019a736fd448ec0464f324f3f7063003&units=metric&q=London&mode=json')
-
-        // weatherApi.getAllWeather((error, response) => {
-        //         dispatch(updateForecasts(response));
-        //     }
-        // );
     };
 };
 
@@ -67,7 +61,7 @@ export const useGeolocation = () => {
         try {
             navigator.geolocation.getCurrentPosition(position => {
                 const locationData = geocoder(position.coords.latitude, position.coords.longitude),
-                    city = locationData[0].city;
+                    city = `${locationData[0].city}, ${locationData[0].country_code}`;
 
                 dispatch(setCity(city));
             });
