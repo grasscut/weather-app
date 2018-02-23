@@ -17,10 +17,9 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "sass --watch src/scss/main.scss:public/main.css & react-scripts start",
-    "build": "webpack --config webpack.config.js --progress --colors",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "webpack -p & react-scripts start",
+    "start:dev": "sass --watch src/scss/main.scss:public/main.css & react-scripts start",
+    "build": "webpack --config webpack.config.js --progress --colors"
   },
   "devDependencies": {
     "babel": "^6.23.0",
