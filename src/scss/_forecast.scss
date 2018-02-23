@@ -6,7 +6,7 @@
   &__details {
     color: $peach-dark;
     font-size: 14px;
-    max-width: 140px;
+    width: 140px;
   }
 }
 
@@ -35,21 +35,18 @@
 
 .dayTimeForecast {
   line-height: 24px;
-
-  &__temperature {
-    float: right;
-    margin-left: 30px;
-  }
+  display: flex;
+  justify-content: space-between;
 }
 
-@media (min-width: 350px) and (max-width: 489px) {
+@media (min-width: 350px) and (max-width: 629px) {
   .forecast {
     flex-direction: row;
     align-items: center;
   }
 }
 
-@media (min-width: 490px) {
+@media (min-width: 630px) {
   .forecast {
     flex-direction: row;
     align-items: center;
@@ -64,6 +61,8 @@
   .forecastTemperature {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 360px;
 
     &__value {
       margin-right: 26px;
