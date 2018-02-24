@@ -32,16 +32,11 @@
   border-bottom: 1px solid $blue-gray;
   text-align: center;
   font-size: 26px;
+  padding: 0 24px;
+  box-sizing: border-box;
 
   background-image:url('./../images/navigation/search.svg');
   background-repeat:no-repeat;
   background-position:right center;
   outline:0;
-
-  //&::-webkit-input-placeholder,
-  //&::-moz-placeholder,
-  //&:-ms-input-placeholder,
-  //&:-o-input-placeholder {
-  //  font-weight: 600;
-  //}
 }

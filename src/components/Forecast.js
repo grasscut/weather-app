@@ -1,29 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { dayTimes, getDayTime } from '../utils/daytime-helpers';
 import { formatTemperature } from '../utils/formatting';
 
 const createForecastDetails = (temperature, unit) => {
-    const dayTimeNames = {
-        'morn': 'Morning',
-        'day': 'Day',
-        'eve': 'Evening',
-        'night': 'Night'
-    };
 
-    return Object.keys(dayTimeNames)
-        .filter(abbr => abbr in temperature)
-        .map(abbr => {
+    return dayTimes
+        .map(dayTimeData => {
+            const abbr = dayTimeData.abbr;
+
             return (
                 <div className="dayTimeForecast" key={abbr}>
-                    <span className="dayTimeForecast__title">{dayTimeNames[abbr]}</span>
+                    <span className="dayTimeForecast__title">{dayTimeData.name}</span>
                     <span className="dayTimeForecast__temperature">{formatTemperature(temperature[abbr], unit)}</span>
                 </div>
             );
         });
 };
 
-const Forecast = ({ data, unit }) => {
+const Forecast = ({ data, unit, today }) => {
     if (data) {
+        const currentDayTime = getDayTime(today).abbr;
+
         return (
             <div className="forecast">
                 <div className="forecastMain">
@@ -32,7 +30,7 @@ const Forecast = ({ data, unit }) => {
                     </div>
                     <div className="forecastTemperature">
                         <div className="forecastTemperature__value">
-                            {formatTemperature(data.temperature.day, unit)}
+                            {formatTemperature(data.temperature[currentDayTime], unit)}
                         </div>
                         <i className={`forecastTemperature__icon wi wi-owm-${data.id}`}></i>
                     </div>
@@ -49,7 +47,8 @@ const Forecast = ({ data, unit }) => {
 
 Forecast.propTypes = {
     data: PropTypes.object,
-    unit: PropTypes.string
+    unit: PropTypes.string,
+    today: PropTypes.string
 };
 
 export default Forecast;

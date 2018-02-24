@@ -81,7 +81,7 @@ export const useGeolocation = () => {
                 dispatch(setCity(city));
             });
         } catch (error) {
-            // to do
+            // do something
         }
     };
 };

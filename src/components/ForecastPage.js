@@ -12,6 +12,8 @@ class ForecastPage extends Component {
     constructor(props) {
         super(props);
         this.handleToggle = this.handleToggle.bind(this);
+
+        this.today = moment().format('YYYY-MM-DD HH:mm');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -42,8 +44,8 @@ class ForecastPage extends Component {
     }
 
     render() {
-        const { city, today, unit, forecasts } = this.props,
-            formattedDate = moment(today).local().format('dddd, MMMM Do YYYY');
+        const { city, unit, forecasts } = this.props,
+            formattedDate = moment(this.today).local().format('dddd, MMMM Do YYYY');
 
         return (
             <div className="forecastPage">
@@ -62,12 +64,12 @@ class ForecastPage extends Component {
                     {formattedDate}
                 </div>
 
-                <Forecast data={forecasts && forecasts[0]} unit={unit} />
+                <Forecast data={forecasts && forecasts[0]} unit={unit} today={this.today} />
 
                 <div className="forecastPage__weekForecast">
                     {forecasts && forecasts.map(
                         (forecast, i) => {
-                            const day = moment(today).add(i, 'days').format('dddd');
+                            const day = moment(this.today).add(i, 'days').format('dddd');
 
                             return <PreviewForecast key={i} day={day} data={forecast} unit={unit} />;
                         }
@@ -80,7 +82,6 @@ class ForecastPage extends Component {
 
 ForecastPage.propTypes = {
     city: PropTypes.string.isRequired,
-    today: PropTypes.string.isRequired,
     unit: PropTypes.string.isRequired,
     forecasts: PropTypes.array,
     fetchForecasts: PropTypes.func.isRequired,

@@ -5,7 +5,6 @@ import { fetchForecasts, setUnit } from '../actions/actions';
 const mapStateToProps = state => {
     return {
         city: state.userSettings.city,
-        today: state.forecastData.today,
         unit: state.userSettings.unit.visualValue,
         forecasts: state.forecastData.forecasts
     };
